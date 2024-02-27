@@ -3,7 +3,7 @@ Renames GoPro chapter videos so that they appear in the correct order when sorte
 
 ## Usage
 
-```bash
+```text
 ~$ GoProVideoRenamer --help
 
 Usage: GoProVideoRenamer [--file-location <String>] [--prefix <String>] [--suffix <String>] [--starting-number <Int32>] [--digit-count <Int32>] [--dry-run] [--help] [--version]
