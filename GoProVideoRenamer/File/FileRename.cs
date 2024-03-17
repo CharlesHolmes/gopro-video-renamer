@@ -1,5 +1,7 @@
 ﻿using GoProVideoRenamer.File.Interfaces;
-using GoProVideoRenamer.File.Models;
+using GoProVideoRenamer.File.VideoFile;
+using GoProVideoRenamer.File.VideoFile.Numbered.Interfaces;
+using GoProVideoRenamer.File.VideoFile.Renamed.Interfaces;
 using Microsoft.Extensions.Logging;
 
 namespace GoProVideoRenamer.File
@@ -7,14 +9,18 @@ namespace GoProVideoRenamer.File
     public class FileRename : IFileRename
     {
         private readonly ILogger<FileRename> _logger;
+        private readonly IRenamedVideoFileFactory _renamedVideoFileFactory;
 
-        public FileRename(ILogger<FileRename> logger)
+        public FileRename(
+            ILogger<FileRename> logger,
+            IRenamedVideoFileFactory renamedVideoFileFactory)
         {
             _logger = logger;
+            _renamedVideoFileFactory = renamedVideoFileFactory;
         }
 
-        public IList<RenamedVideoFile> GetRenamedFiles(
-            IList<NumberedVideoFile> files,
+        public IList<IRenamedVideoFile> GetRenamedFiles(
+            IList<INumberedVideoFile> files,
             string? prefix,
             string? suffix,
             int? digitCount)
@@ -23,10 +29,10 @@ namespace GoProVideoRenamer.File
             VerifyDigitCountIsLargeEnough(digitCount, maxNewIndex);
             return files
                 .Select(file =>
-                    new RenamedVideoFile(
+                    _renamedVideoFileFactory.Create(
                         GetNewFilename(prefix, suffix, GetDigitCount(digitCount, maxNewIndex), file),
                         file))
-                .ToList(); ;
+                .ToList();
         }
 
         private int GetDigitCount(int? specifiedDigitCount, int maxNewIndex)
@@ -41,7 +47,7 @@ namespace GoProVideoRenamer.File
             }
         }
 
-        private string GetNewFilename(string? prefix, string? suffix, int digitCount, NumberedVideoFile file)
+        private string GetNewFilename(string? prefix, string? suffix, int digitCount, INumberedVideoFile file)
         {
             return $"{prefix}{file.NewIndex.ToString($"D{digitCount}")}{suffix}{file.FileExtension}";
         }

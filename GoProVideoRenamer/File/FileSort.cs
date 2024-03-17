@@ -1,19 +1,28 @@
 ﻿using GoProVideoRenamer.File.Interfaces;
-using GoProVideoRenamer.File.Models;
+using GoProVideoRenamer.File.VideoFile;
+using GoProVideoRenamer.File.VideoFile.Interfaces;
+using GoProVideoRenamer.File.VideoFile.Numbered.Interfaces;
 
 namespace GoProVideoRenamer.File
 {
     public class FileSort : IFileSort
     {
-        // https://community.gopro.com/s/article/GoPro-Camera-File-Naming-Convention?language=en_US
-        public List<NumberedVideoFile> GetOrderedFiles(IEnumerable<VideoFile> files, int? startingNumber)
+        private readonly INumberedVideoFileFactory _numberedVideoFileFactory;
+
+        public FileSort(INumberedVideoFileFactory numberedVideoFileFactory)
         {
-            var filesByNumber = new SortedList<int, List<VideoFile>>();
-            foreach (VideoFile file in files)
+            _numberedVideoFileFactory = numberedVideoFileFactory;
+        }
+
+        // https://community.gopro.com/s/article/GoPro-Camera-File-Naming-Convention?language=en_US
+        public List<INumberedVideoFile> GetOrderedFiles(IEnumerable<IVideoFile> files, int? startingNumber)
+        {
+            var filesByNumber = new SortedList<int, List<IVideoFile>>();
+            foreach (IVideoFile file in files)
             {
                 if (!filesByNumber.ContainsKey(file.FileNumber))
                 {
-                    filesByNumber.Add(file.FileNumber, new List<VideoFile>());
+                    filesByNumber.Add(file.FileNumber, new List<IVideoFile>());
                 }
 
                 filesByNumber[file.FileNumber].Add(file);
@@ -26,8 +35,8 @@ namespace GoProVideoRenamer.File
 
             int firstNumber = startingNumber.HasValue ? startingNumber.Value : 1;
             return filesByNumber.Values
-                .Aggregate(Enumerable.Empty<VideoFile>(), (x, y) => x.Concat(y))
-                .Select((file, i) => new NumberedVideoFile(i + firstNumber, file))
+                .Aggregate(Enumerable.Empty<IVideoFile>(), (x, y) => x.Concat(y))
+                .Select((file, i) => _numberedVideoFileFactory.Create(i + firstNumber, file))
                 .ToList();
         }
     }

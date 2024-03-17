@@ -1,4 +1,4 @@
-﻿namespace GoProVideoRenamer
+﻿namespace GoProVideoRenamer.ConsoleWrapping
 {
     public interface IConsoleWrapper
     {
