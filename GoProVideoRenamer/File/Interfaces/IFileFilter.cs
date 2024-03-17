@@ -1,9 +1,9 @@
-﻿using GoProVideoRenamer.File.Models;
+﻿using GoProVideoRenamer.File.VideoFile.Interfaces;
 
 namespace GoProVideoRenamer.File.Interfaces
 {
     public interface IFileFilter
     {
-        IEnumerable<VideoFile> GetMatchingVideos(IEnumerable<VideoFile> allFiles);
+        IEnumerable<IVideoFile> GetMatchingVideos(IEnumerable<IVideoFile> allFiles);
     }
 }

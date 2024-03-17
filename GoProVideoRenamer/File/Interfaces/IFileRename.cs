@@ -1,11 +1,12 @@
-﻿using GoProVideoRenamer.File.Models;
+﻿using GoProVideoRenamer.File.VideoFile.Numbered.Interfaces;
+using GoProVideoRenamer.File.VideoFile.Renamed.Interfaces;
 
 namespace GoProVideoRenamer.File.Interfaces
 {
     public interface IFileRename
     {
-        IList<RenamedVideoFile> GetRenamedFiles(
-            IList<NumberedVideoFile> files,
+        IList<IRenamedVideoFile> GetRenamedFiles(
+            IList<INumberedVideoFile> files,
             string? prefix,
             string? suffix,
             int? digitCount);

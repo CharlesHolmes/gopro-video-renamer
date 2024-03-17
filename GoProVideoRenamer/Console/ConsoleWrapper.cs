@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GoProVideoRenamer
+namespace GoProVideoRenamer.ConsoleWrapping
 {
     public class ConsoleWrapper : IConsoleWrapper
     {

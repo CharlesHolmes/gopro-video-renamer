@@ -1,7 +1,8 @@
 ﻿using Cocona;
+using GoProVideoRenamer.ConsoleWrapping;
 using GoProVideoRenamer.Directory.Interfaces;
 using GoProVideoRenamer.File.Interfaces;
-using GoProVideoRenamer.File.Models;
+using GoProVideoRenamer.File.VideoFile.Renamed;
 using Microsoft.Extensions.Logging;
 
 namespace GoProVideoRenamer

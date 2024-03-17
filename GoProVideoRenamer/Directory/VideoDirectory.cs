@@ -1,5 +1,6 @@
 ﻿using GoProVideoRenamer.Directory.Interfaces;
-using GoProVideoRenamer.File.Models;
+using GoProVideoRenamer.File.VideoFile;
+using GoProVideoRenamer.File.VideoFile.Interfaces;
 using Microsoft.Extensions.Logging;
 using System.IO.Abstractions;
 
@@ -11,16 +12,19 @@ namespace GoProVideoRenamer.Directory
         private readonly IFileSystem _fileSystem;
         private readonly string _directoryPath;
         private readonly IDirectoryInfo _directoryInfo;
+        private readonly IVideoFileFactory _videoFileFactory;
 
         public VideoDirectory(
             ILogger<VideoDirectory> logger,
             IFileSystem fileSystem,
+            IVideoFileFactory videoFileFactory,
             string directoryPath)
         {
             _logger = logger;
             _fileSystem = fileSystem;
             _directoryPath = directoryPath;
             _directoryInfo = _fileSystem.DirectoryInfo.New(_directoryPath);
+            _videoFileFactory = videoFileFactory;
             VerifyDirectoryExists();
         }
 
@@ -38,6 +42,6 @@ namespace GoProVideoRenamer.Directory
             }
         }
 
-        public IEnumerable<VideoFile> GetFilesInDirectory() => _directoryInfo.GetFiles().Select(file => new VideoFile(file));
+        public IEnumerable<IVideoFile> GetFilesInDirectory() => _directoryInfo.GetFiles().Select(file => _videoFileFactory.Create(file));
     }
 }

@@ -1,4 +1,5 @@
 ﻿using GoProVideoRenamer.Directory.Interfaces;
+using GoProVideoRenamer.File.VideoFile.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.IO.Abstractions;
@@ -19,6 +20,7 @@ namespace GoProVideoRenamer.Directory
             return new VideoDirectory(
                 _serviceProvider.GetRequiredService<ILogger<VideoDirectory>>(),
                 _serviceProvider.GetRequiredService<IFileSystem>(),
+                _serviceProvider.GetRequiredService<IVideoFileFactory>(),
                 directoryPath);
         }
     }
