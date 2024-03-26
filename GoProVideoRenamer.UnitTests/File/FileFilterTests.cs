@@ -18,9 +18,9 @@ namespace GoProVideoRenamer.UnitTests.File
         public void FileFilter_ShouldReturnGoProAvcVideos()
         {
             var testFiles = new[] {
-                IVideoFileMocks.GetMockedIVideoFile("GH010001.mp4"),
-                IVideoFileMocks.GetMockedIVideoFile("GH010002.mp4"),
-                IVideoFileMocks.GetMockedIVideoFile("GH010003.mp4")
+                IVideoFileMocking.GetMockedIVideoFile("GH010001.mp4"),
+                IVideoFileMocking.GetMockedIVideoFile("GH010002.mp4"),
+                IVideoFileMocking.GetMockedIVideoFile("GH010003.mp4")
             };
             var fileFilter = new FileFilter();
 
@@ -33,9 +33,9 @@ namespace GoProVideoRenamer.UnitTests.File
         public void FileFilter_ShouldReturnGoProHevcVideos()
         {
             var testFiles = new[] {
-                IVideoFileMocks.GetMockedIVideoFile("GX010001.mp4"),
-                IVideoFileMocks.GetMockedIVideoFile("GX010002.mp4"),
-                IVideoFileMocks.GetMockedIVideoFile("GX010003.mp4")
+                IVideoFileMocking.GetMockedIVideoFile("GX010001.mp4"),
+                IVideoFileMocking.GetMockedIVideoFile("GX010002.mp4"),
+                IVideoFileMocking.GetMockedIVideoFile("GX010003.mp4")
             };
             var fileFilter = new FileFilter();
 
@@ -48,9 +48,9 @@ namespace GoProVideoRenamer.UnitTests.File
         public void FileFilter_ShouldIdentifySingleVideos()
         {
             var testFiles = new[] {
-                IVideoFileMocks.GetMockedIVideoFile("GH010001.mp4"),
-                IVideoFileMocks.GetMockedIVideoFile("GH010002.mp4"),
-                IVideoFileMocks.GetMockedIVideoFile("GH010003.mp4")
+                IVideoFileMocking.GetMockedIVideoFile("GH010001.mp4"),
+                IVideoFileMocking.GetMockedIVideoFile("GH010002.mp4"),
+                IVideoFileMocking.GetMockedIVideoFile("GH010003.mp4")
             };
             var fileFilter = new FileFilter();
 
@@ -63,9 +63,9 @@ namespace GoProVideoRenamer.UnitTests.File
         public void FileFilter_ShouldIdentifyChapteredVideos()
         {
             var testFiles = new[] {
-                IVideoFileMocks.GetMockedIVideoFile("GH010001.mp4"),
-                IVideoFileMocks.GetMockedIVideoFile("GH020001.mp4"),
-                IVideoFileMocks.GetMockedIVideoFile("GH030001.mp4")
+                IVideoFileMocking.GetMockedIVideoFile("GH010001.mp4"),
+                IVideoFileMocking.GetMockedIVideoFile("GH020001.mp4"),
+                IVideoFileMocking.GetMockedIVideoFile("GH030001.mp4")
             };
             var fileFilter = new FileFilter();
 
@@ -78,9 +78,9 @@ namespace GoProVideoRenamer.UnitTests.File
         public void FileFilter_ShouldNotIdentifyLoopedVideos()
         {
             var testFiles = new[] {
-                IVideoFileMocks.GetMockedIVideoFile("GHAA0001.mp4"),
-                IVideoFileMocks.GetMockedIVideoFile("GHAA0002.mp4"),
-                IVideoFileMocks.GetMockedIVideoFile("GHAA0003.mp4")
+                IVideoFileMocking.GetMockedIVideoFile("GHAA0001.mp4"),
+                IVideoFileMocking.GetMockedIVideoFile("GHAA0002.mp4"),
+                IVideoFileMocking.GetMockedIVideoFile("GHAA0003.mp4")
             };
             var fileFilter = new FileFilter();
 
@@ -93,15 +93,15 @@ namespace GoProVideoRenamer.UnitTests.File
         public void FileFilter_ShouldNotReturnOtherFiles()
         {
             var goproFiles = new[] {
-                IVideoFileMocks.GetMockedIVideoFile("GH010001.mp4"),
-                IVideoFileMocks.GetMockedIVideoFile("GH020001.mp4"),
-                IVideoFileMocks.GetMockedIVideoFile("GH030001.mp4")
+                IVideoFileMocking.GetMockedIVideoFile("GH010001.mp4"),
+                IVideoFileMocking.GetMockedIVideoFile("GH020001.mp4"),
+                IVideoFileMocking.GetMockedIVideoFile("GH030001.mp4")
             };
             var notGoproFiles = new[] {
-                IVideoFileMocks.GetMockedIVideoFile("test.txt"),
-                IVideoFileMocks.GetMockedIVideoFile("other_video.mp4"),
-                IVideoFileMocks.GetMockedIVideoFile("never gonna give you up.mp3"),
-                IVideoFileMocks.GetMockedIVideoFile("system32")
+                IVideoFileMocking.GetMockedIVideoFile("test.txt"),
+                IVideoFileMocking.GetMockedIVideoFile("other_video.mp4"),
+                IVideoFileMocking.GetMockedIVideoFile("never gonna give you up.mp3"),
+                IVideoFileMocking.GetMockedIVideoFile("system32")
             };
             var allFiles = goproFiles.Union(notGoproFiles);
             var fileFilter = new FileFilter();
