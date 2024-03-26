@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GoProVideoRenamer.UnitTests.File
 {
-    internal class IVideoFileMocks
+    internal class IVideoFileMocking
     {
         public static IVideoFile GetMockedIVideoFile(string fileName)
         {

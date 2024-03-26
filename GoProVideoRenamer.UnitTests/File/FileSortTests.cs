@@ -18,13 +18,13 @@ namespace GoProVideoRenamer.UnitTests.File
         [TestMethod]
         public void FileSort_ShouldOrderGoproFiles()
         {
-            var file1 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX010001.mp4");
+            var file1 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX010001.mp4");
             var numbered1 = new NumberedVideoFile(1, file1);
-            var file2 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX010002.mp4");
+            var file2 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX010002.mp4");
             var numbered2 = new NumberedVideoFile(2, file2);
-            var file3 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX010003.mp4");
+            var file3 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX010003.mp4");
             var numbered3 = new NumberedVideoFile(3, file3);
-            var file4 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX010004.mp4");
+            var file4 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX010004.mp4");
             var numbered4 = new NumberedVideoFile(4, file4);
 
             var files = new[]
@@ -50,13 +50,13 @@ namespace GoProVideoRenamer.UnitTests.File
         [TestMethod]
         public void FileSort_ShouldOrderChapteredFiles()
         {
-            var file1 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX010001.mp4");
+            var file1 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX010001.mp4");
             var numbered1 = new NumberedVideoFile(1, file1);
-            var file2 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX020001.mp4");
+            var file2 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX020001.mp4");
             var numbered2 = new NumberedVideoFile(2, file2);
-            var file3 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX030001.mp4");
+            var file3 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX030001.mp4");
             var numbered3 = new NumberedVideoFile(3, file3);
-            var file4 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX040001.mp4");
+            var file4 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX040001.mp4");
             var numbered4 = new NumberedVideoFile(4, file4);
 
             var files = new[]
@@ -82,17 +82,17 @@ namespace GoProVideoRenamer.UnitTests.File
         [TestMethod]
         public void FileSort_ShouldOrderIndividualAndChapteredFiles()
         {
-            var file1 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX010001.mp4");
+            var file1 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX010001.mp4");
             var numbered1 = new NumberedVideoFile(1, file1);
-            var file2 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX010002.mp4");
+            var file2 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX010002.mp4");
             var numbered2 = new NumberedVideoFile(2, file2);
-            var file3 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX020002.mp4");
+            var file3 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX020002.mp4");
             var numbered3 = new NumberedVideoFile(3, file3);
-            var file4 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX030002.mp4");
+            var file4 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX030002.mp4");
             var numbered4 = new NumberedVideoFile(4, file4);
-            var file5 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX040002.mp4");
+            var file5 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX040002.mp4");
             var numbered5 = new NumberedVideoFile(5, file5);
-            var file6 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX010003.mp4");
+            var file6 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX010003.mp4");
             var numbered6 = new NumberedVideoFile(6, file6);
 
             var files = new[]
@@ -122,9 +122,9 @@ namespace GoProVideoRenamer.UnitTests.File
         [TestMethod]
         public void FileSort_ShouldThrowIfFilesAreDuplicate()
         {
-            var file1 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX010001.mp4");
+            var file1 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX010001.mp4");
             var numbered1 = new NumberedVideoFile(1, file1);
-            var file2 = IVideoFileMocks.GetIVideoFileWithMockedIFileInfo("GX010001.mp4");
+            var file2 = IVideoFileMocking.GetIVideoFileWithMockedIFileInfo("GX010001.mp4");
             var numbered2 = new NumberedVideoFile(2, file2);
 
             var files = new[]
