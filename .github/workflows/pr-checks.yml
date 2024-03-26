@@ -30,7 +30,7 @@ jobs:
               run: dotnet build --no-restore
                 
             - name: Test solution
-              run: dotnet test --no-build --logger "trx;LogFileName=test_results.trx"
+              run: dotnet test --no-build --logger "trx;LogFileName=test_results.trx" --collect:"XPlat Code Coverage"
               
             - name: Publish Test Results
               uses: EnricoMi/publish-unit-test-result-action@v2
