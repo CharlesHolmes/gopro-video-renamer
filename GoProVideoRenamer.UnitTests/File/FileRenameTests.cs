@@ -1,8 +1,8 @@
 ﻿using FluentAssertions;
 using GoProVideoRenamer.File;
-using GoProVideoRenamer.File.VideoFile.Numbered.Interfaces;
-using GoProVideoRenamer.File.VideoFile.Renamed;
-using GoProVideoRenamer.File.VideoFile.Renamed.Interfaces;
+using GoProVideoRenamer.File.VideoFiles.Numbered.Interfaces;
+using GoProVideoRenamer.File.VideoFiles.Renamed;
+using GoProVideoRenamer.File.VideoFiles.Renamed.Interfaces;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting.Logging;
 using Moq;

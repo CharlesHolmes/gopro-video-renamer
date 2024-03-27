@@ -1,5 +1,5 @@
-﻿using GoProVideoRenamer.File.VideoFile;
-using GoProVideoRenamer.File.VideoFile.Interfaces;
+﻿using GoProVideoRenamer.File.VideoFiles;
+using GoProVideoRenamer.File.VideoFiles.Interfaces;
 
 namespace GoProVideoRenamer.Directory.Interfaces
 {

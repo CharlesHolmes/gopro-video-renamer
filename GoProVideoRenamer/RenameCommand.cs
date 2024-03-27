@@ -2,7 +2,8 @@
 using GoProVideoRenamer.ConsoleWrapping;
 using GoProVideoRenamer.Directory.Interfaces;
 using GoProVideoRenamer.File.Interfaces;
-using GoProVideoRenamer.File.VideoFile.Renamed;
+using GoProVideoRenamer.File.VideoFiles.Renamed;
+using GoProVideoRenamer.File.VideoFiles.Renamed.Interfaces;
 using Microsoft.Extensions.Logging;
 
 namespace GoProVideoRenamer
@@ -45,7 +46,7 @@ namespace GoProVideoRenamer
             var matchingVideoFiles = _filenameFilter.GetMatchingVideos(allFilesInDirectory);
             var sortedVideoFiles = _fileSort.GetOrderedFiles(matchingVideoFiles, startingNumber);
             var renamedFiles = _fileRename.GetRenamedFiles(sortedVideoFiles, prefix, suffix, digitCount);
-            foreach (RenamedVideoFile file in renamedFiles)
+            foreach (IRenamedVideoFile file in renamedFiles)
             {
                 _console.WriteLine($"{file.NewIndex}: {file.Name} -> {file.NewName}");
                 if (!dryRun)

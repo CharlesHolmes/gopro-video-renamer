@@ -25,4 +25,8 @@
     <ProjectReference Include="..\GoProVideoRenamer\GoProVideoRenamer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="File\VideoFiles\Renamed\" />
+  </ItemGroup>
+
 </Project>

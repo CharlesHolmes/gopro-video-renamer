@@ -1,6 +1,6 @@
-﻿using GoProVideoRenamer.File.VideoFile.Interfaces;
+﻿using GoProVideoRenamer.File.VideoFiles.Interfaces;
 
-namespace GoProVideoRenamer.File.VideoFile.Numbered.Interfaces
+namespace GoProVideoRenamer.File.VideoFiles.Numbered.Interfaces
 {
     public interface INumberedVideoFileFactory
     {

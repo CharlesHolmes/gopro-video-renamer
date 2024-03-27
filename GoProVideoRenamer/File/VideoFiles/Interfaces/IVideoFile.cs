@@ -1,6 +1,6 @@
 ﻿using System.IO.Abstractions;
 
-namespace GoProVideoRenamer.File.VideoFile.Interfaces
+namespace GoProVideoRenamer.File.VideoFiles.Interfaces
 {
     public interface IVideoFile
     {

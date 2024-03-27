@@ -1,4 +1,4 @@
-﻿using GoProVideoRenamer.File.VideoFile.Interfaces;
+﻿using GoProVideoRenamer.File.VideoFiles.Interfaces;
 
 namespace GoProVideoRenamer.File.Interfaces
 {
