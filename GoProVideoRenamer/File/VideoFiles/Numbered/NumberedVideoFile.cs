@@ -1,8 +1,8 @@
 ﻿using System.IO.Abstractions;
-using GoProVideoRenamer.File.VideoFile.Interfaces;
-using GoProVideoRenamer.File.VideoFile.Numbered.Interfaces;
+using GoProVideoRenamer.File.VideoFiles.Interfaces;
+using GoProVideoRenamer.File.VideoFiles.Numbered.Interfaces;
 
-namespace GoProVideoRenamer.File.VideoFile.Numbered
+namespace GoProVideoRenamer.File.VideoFiles.Numbered
 {
     public class NumberedVideoFile : VideoFile, INumberedVideoFile
     {

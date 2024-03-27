@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using GoProVideoRenamer.File;
-using GoProVideoRenamer.File.VideoFile;
-using GoProVideoRenamer.File.VideoFile.Interfaces;
+using GoProVideoRenamer.File.VideoFiles;
+using GoProVideoRenamer.File.VideoFiles.Interfaces;
 using Moq;
 using System;
 using System.Collections.Generic;

@@ -1,5 +1,5 @@
 ﻿using GoProVideoRenamer.Directory.Interfaces;
-using GoProVideoRenamer.File.VideoFile.Interfaces;
+using GoProVideoRenamer.File.VideoFiles.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.IO.Abstractions;

@@ -1,12 +1,12 @@
-﻿using GoProVideoRenamer.File.VideoFile.Interfaces;
-using GoProVideoRenamer.File.VideoFile.Numbered.Interfaces;
+﻿using GoProVideoRenamer.File.VideoFiles.Interfaces;
+using GoProVideoRenamer.File.VideoFiles.Numbered.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GoProVideoRenamer.File.VideoFile.Numbered
+namespace GoProVideoRenamer.File.VideoFiles.Numbered
 {
     public class NumberedVideoFileFactory : INumberedVideoFileFactory
     {

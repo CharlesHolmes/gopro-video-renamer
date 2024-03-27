@@ -4,9 +4,9 @@ using System.IO.Abstractions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GoProVideoRenamer.File.VideoFile.Interfaces;
+using GoProVideoRenamer.File.VideoFiles.Interfaces;
 
-namespace GoProVideoRenamer.File.VideoFile
+namespace GoProVideoRenamer.File.VideoFiles
 {
     public class VideoFileFactory : IVideoFileFactory
     {

@@ -6,10 +6,12 @@ using GoProVideoRenamer.File;
 using GoProVideoRenamer.File.Interfaces;
 using GoProVideoRenamer.ParameterLogging;
 using Microsoft.Extensions.DependencyInjection;
+using System.Diagnostics.CodeAnalysis;
 using System.IO.Abstractions;
 
 namespace GoProVideoRenamer
 {
+    [ExcludeFromCodeCoverage]
     internal static class Program
     {
         static void Main(string[] args)
