@@ -8,11 +8,11 @@ namespace GoProVideoRenamer.File
 {
     public class FileRename : IFileRename
     {
-        private readonly ILogger<FileRename> _logger;
+        private readonly ILogger<IFileRename> _logger;
         private readonly IRenamedVideoFileFactory _renamedVideoFileFactory;
 
         public FileRename(
-            ILogger<FileRename> logger,
+            ILogger<IFileRename> logger,
             IRenamedVideoFileFactory renamedVideoFileFactory)
         {
             _logger = logger;
