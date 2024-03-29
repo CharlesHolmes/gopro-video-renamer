@@ -1,4 +1,6 @@
 ﻿using Cocona;
+using Cocona.Builder;
+using Cocona.Filters;
 using GoProVideoRenamer.Configuration;
 using GoProVideoRenamer.ConsoleWrapping;
 using GoProVideoRenamer.Directory;
@@ -20,8 +22,8 @@ namespace GoProVideoRenamer
             var builder = CoconaApp.CreateBuilder();
             ServiceConfiguration.Configure(builder.Services);
             var app = builder.Build();
-            app.UseFilter(new ParameterLoggingCommandFilterFactory());
-            app.AddCommands<RenameCommand>();
+            FilterConfiguration.RegisterAllFilters(app);
+            CommandConfiguration.RegisterAllCommands(app);
             app.Run();
         }
     }
