@@ -18,15 +18,16 @@ namespace GoProVideoRenamer.UnitTests.Configuration
         public void FilterConfiguration_ShouldRegisterParameterLoggingFilter()
         {
             var mockedApp = new Mock<ICoconaCommandsBuilder>();
-            var mockedRegistrationFunc = new Mock<Func<ICoconaCommandsBuilder, IFilterFactory, ICoconaCommandsBuilder>>();
-            mockedRegistrationFunc
-                .Setup(m => m.Invoke(It.IsAny<ICoconaCommandsBuilder>(), It.IsAny<IFilterFactory>()))
-                .Returns(mockedApp.Object);
-            FilterConfiguration.RegisterFilter = mockedRegistrationFunc.Object;
+            var mockedPropertyDict = new Mock<IDictionary<string, object?>>();
+            var mockedObjectList = new Mock<IList<object>>();
+            mockedPropertyDict.Setup(m => m.TryGetValue("Cocona.Builder.CoconaCommandsBuilder+Filters", out It.Ref<object>.IsAny!))
+                .Callback((string key, out object result) => { result = mockedObjectList.Object; })
+                .Returns(true);
+            mockedApp.Setup(m => m.Properties).Returns(mockedPropertyDict.Object);
 
             FilterConfiguration.RegisterAllFilters(mockedApp.Object);
 
-            mockedRegistrationFunc.Verify(m => m.Invoke(mockedApp.Object, It.IsAny<ParameterLoggingCommandFilterFactory>()));
+            mockedObjectList.Verify(m => m.Add(It.IsAny<ParameterLoggingCommandFilterFactory>()));
         }
     }
 }

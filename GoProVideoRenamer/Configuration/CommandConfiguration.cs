@@ -10,11 +10,9 @@ namespace GoProVideoRenamer.Configuration
 {
     public static class CommandConfiguration
     {
-        public static Func<ICoconaCommandsBuilder, Type, CommandTypeConventionBuilder> AddCommand = CommandsBuilderExtensions.AddCommands;
-
         public static void RegisterAllCommands(ICoconaCommandsBuilder app)
         {
-            AddCommand(app, typeof(RenameCommand));
+            app.AddCommands<RenameCommand>();
         }
     }
 }

@@ -17,14 +17,11 @@ namespace GoProVideoRenamer.UnitTests.Configuration
         public void CommandConfiguration_ShouldAddRenameCommand()
         {
             var mockedApp = new Mock<ICoconaCommandsBuilder>();
-            var mockedAddFunc = new Mock<Func<ICoconaCommandsBuilder, Type, CommandTypeConventionBuilder>>();
-            mockedAddFunc
-                .Setup(m => m.Invoke(It.IsAny<ICoconaCommandsBuilder>(), It.IsAny<Type>()));
-            CommandConfiguration.AddCommand = mockedAddFunc.Object;
+            mockedApp.DefaultValue = DefaultValue.Mock;
 
             CommandConfiguration.RegisterAllCommands(mockedApp.Object);
 
-            mockedAddFunc.Verify(m => m.Invoke(mockedApp.Object, It.Is<Type>(t => t == typeof(RenameCommand))));
+            mockedApp.Verify(m => m.Add(It.Is<TypeCommandDataSource>(t => ((TypeCommandData)t.Build()).Type == typeof(RenameCommand))));
         }
     }
 }
