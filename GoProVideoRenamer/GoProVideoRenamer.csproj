@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Cocona" Version="2.2.0" />
-    <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="21.0.22" />
+    <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="21.0.26" />
   </ItemGroup>
 
 </Project>
